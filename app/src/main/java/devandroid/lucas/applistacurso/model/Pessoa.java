@@ -1,5 +1,7 @@
 package devandroid.lucas.applistacurso.model;
 
+import androidx.annotation.NonNull;
+
 public class Pessoa {
 
     // Construtor
@@ -44,9 +46,14 @@ public class Pessoa {
         this.telefoneContato = telefoneContato;
     }
 
-    public Pessoa(){
-
-
+    @NonNull
+    @Override
+    public String toString() {
+        return "Pessoa{" +
+                "primeiroNome='" + primeiroNome + '\'' +
+                ", sobreNome='" + sobreNome + '\'' +
+                ", cursoDesejado='" + cursoDesejado + '\'' +
+                ", telefoneContato='" + telefoneContato + '\'' +
+                '}';
     }
-
 }

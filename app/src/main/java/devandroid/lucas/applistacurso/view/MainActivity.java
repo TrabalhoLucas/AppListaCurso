@@ -4,9 +4,6 @@ import android.os.Bundle;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 
 import devandroid.lucas.applistacurso.R;
 import devandroid.lucas.applistacurso.model.Pessoa;
@@ -53,8 +50,6 @@ public class MainActivity extends AppCompatActivity {
         dadosOutraPessoa += outraPessoa.getCursoDesejado();
         dadosOutraPessoa += " Telefone de contato: ";
         dadosOutraPessoa += outraPessoa.getTelefoneContato();
-
-        int parada = 0;
 
     }
 }

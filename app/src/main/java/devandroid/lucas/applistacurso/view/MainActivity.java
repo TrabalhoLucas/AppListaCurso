@@ -66,7 +66,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
         btnFinalizar.setOnClickListener(v -> {
-            Toast.makeText(MainActivity.this,"Volte sempre!",Toast.LENGTH_LONG).show();
+            Toast.makeText(MainActivity.this, "Volte sempre!", Toast.LENGTH_LONG).show();
             finish();
         });
 
@@ -77,13 +77,13 @@ public class MainActivity extends AppCompatActivity {
             pessoa.setCursoDesejado(editNomeDoCurso.getText().toString());
             pessoa.setTelefoneContato(editTelefoneContato.getText().toString());
 
-            Toast.makeText(MainActivity.this,"Salvo! "+pessoa.toString(),Toast.LENGTH_LONG).show();
+            Toast.makeText(MainActivity.this, "Salvo! " + pessoa.toString(), Toast.LENGTH_LONG).show();
 
             controller.salvar(pessoa);
         });
 
 
-        Log.i("POOAndroid","Objeto pessoa: "+pessoa.toString());
-        Log.i("POOAndroid","Objeto outraPessoa: "+outraPessoa.toString());
+        Log.i("POOAndroid", "Objeto pessoa: " + pessoa.toString());
+        Log.i("POOAndroid", "Objeto outraPessoa: " + outraPessoa.toString());
     }
 }

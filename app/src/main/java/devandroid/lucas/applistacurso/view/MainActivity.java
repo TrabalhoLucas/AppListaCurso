@@ -10,14 +10,14 @@ import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 
 import devandroid.lucas.applistacurso.R;
+import devandroid.lucas.applistacurso.controller.PessoaController;
 import devandroid.lucas.applistacurso.model.Pessoa;
 
 public class MainActivity extends AppCompatActivity {
 
+    PessoaController controller;
     Pessoa pessoa;
     Pessoa outraPessoa;
-    String dadosPessoa;
-    String dadosOutraPessoa;
     EditText editPrimeiroNome;
     EditText editSobreNomeAluno;
     EditText editNomeDoCurso;
@@ -33,12 +33,10 @@ public class MainActivity extends AppCompatActivity {
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
 
-        pessoa = new Pessoa();
+        controller = new PessoaController();
+        controller.toString();
 
-        //pessoa.setPrimeiroNome("Lucas");
-        //pessoa.setSobreNome("Santiago");
-        //pessoa.setCursoDesejado("Android");
-        //pessoa.setTelefoneContato("11947895428");
+        pessoa = new Pessoa();
 
         outraPessoa = new Pessoa();
         outraPessoa.setPrimeiroNome("Gustavo");
@@ -81,29 +79,9 @@ public class MainActivity extends AppCompatActivity {
 
             Toast.makeText(MainActivity.this,"Salvo! "+pessoa.toString(),Toast.LENGTH_LONG).show();
 
-
+            controller.salvar(pessoa);
         });
 
-
-/*
-        dadosPessoa = "Primeiro nome: ";
-        dadosPessoa += pessoa.getPrimeiroNome();
-        dadosPessoa += " Sobrenome: ";
-        dadosPessoa += pessoa.getSobreNome();
-        dadosPessoa += " Curso desejado: ";
-        dadosPessoa += pessoa.getCursoDesejado();
-        dadosPessoa += " Telefone de contato: ";
-        dadosPessoa += pessoa.getTelefoneContato();
-
-        dadosOutraPessoa = "Primeiro nome: ";
-        dadosOutraPessoa += outraPessoa.getPrimeiroNome();
-        dadosOutraPessoa += " Sobrenome: ";
-        dadosOutraPessoa += outraPessoa.getSobreNome();
-        dadosOutraPessoa += " Curso desejado: ";
-        dadosOutraPessoa += outraPessoa.getCursoDesejado();
-        dadosOutraPessoa += " Telefone de contato: ";
-        dadosOutraPessoa += outraPessoa.getTelefoneContato();
-*/
 
         Log.i("POOAndroid","Objeto pessoa: "+pessoa.toString());
         Log.i("POOAndroid","Objeto outraPessoa: "+outraPessoa.toString());

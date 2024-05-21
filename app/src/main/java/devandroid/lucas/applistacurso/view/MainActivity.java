@@ -10,10 +10,12 @@ import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 
 import devandroid.lucas.applistacurso.R;
+import devandroid.lucas.applistacurso.controller.PessoaController;
 import devandroid.lucas.applistacurso.model.Pessoa;
 
 public class MainActivity extends AppCompatActivity {
 
+    PessoaController controller;
     Pessoa pessoa;
     Pessoa outraPessoa;
     EditText editPrimeiroNome;
@@ -31,7 +33,13 @@ public class MainActivity extends AppCompatActivity {
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
 
+        controller = new PessoaController();
+        controller.toString();
+
+
         pessoa = new Pessoa();
+
+
 
         outraPessoa = new Pessoa();
         outraPessoa.setPrimeiroNome("Gustavo s");
@@ -72,11 +80,22 @@ public class MainActivity extends AppCompatActivity {
             pessoa.setCursoDesejado(editNomeDoCurso.getText().toString());
             pessoa.setTelefoneContato(editTelefoneContato.getText().toString());
 
+
+            Toast.makeText(MainActivity.this,"Salvo! "+pessoa.toString(),Toast.LENGTH_LONG).show();
+
+            controller.salvar(pessoa);
+        });
+
+
+        Log.i("POOAndroid","Objeto pessoa: "+pessoa.toString());
+        Log.i("POOAndroid","Objeto outraPessoa: "+outraPessoa.toString());
+
             Toast.makeText(MainActivity.this, "Salvo! " + pessoa.toString(), Toast.LENGTH_LONG).show();
 
         });
 
         Log.i("POOAndroid", "Objeto pessoa: " + pessoa.toString());
         Log.i("POOAndroid", "Objeto outraPessoa: " + outraPessoa.toString());
+
     }
 }

@@ -36,10 +36,13 @@ public class MainActivity extends AppCompatActivity {
         controller = new PessoaController();
         controller.toString();
 
+
         pessoa = new Pessoa();
 
+
+
         outraPessoa = new Pessoa();
-        outraPessoa.setPrimeiroNome("Gustavo");
+        outraPessoa.setPrimeiroNome("Gustavo s");
         outraPessoa.setSobreNome("Ferreira");
         outraPessoa.setCursoDesejado("Android1");
         outraPessoa.setTelefoneContato("11999998888");
@@ -66,7 +69,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
         btnFinalizar.setOnClickListener(v -> {
-            Toast.makeText(MainActivity.this,"Volte sempre!",Toast.LENGTH_LONG).show();
+            Toast.makeText(MainActivity.this, "Volte sempre!", Toast.LENGTH_LONG).show();
             finish();
         });
 
@@ -77,6 +80,7 @@ public class MainActivity extends AppCompatActivity {
             pessoa.setCursoDesejado(editNomeDoCurso.getText().toString());
             pessoa.setTelefoneContato(editTelefoneContato.getText().toString());
 
+
             Toast.makeText(MainActivity.this,"Salvo! "+pessoa.toString(),Toast.LENGTH_LONG).show();
 
             controller.salvar(pessoa);
@@ -85,5 +89,13 @@ public class MainActivity extends AppCompatActivity {
 
         Log.i("POOAndroid","Objeto pessoa: "+pessoa.toString());
         Log.i("POOAndroid","Objeto outraPessoa: "+outraPessoa.toString());
+
+            Toast.makeText(MainActivity.this, "Salvo! " + pessoa.toString(), Toast.LENGTH_LONG).show();
+
+        });
+
+        Log.i("POOAndroid", "Objeto pessoa: " + pessoa.toString());
+        Log.i("POOAndroid", "Objeto outraPessoa: " + outraPessoa.toString());
+
     }
 }

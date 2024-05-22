@@ -8,11 +8,10 @@ public class Pessoa {
     // Atributos - obetos - molde - modelo = template
     // Metodos de acessos - Gets and Sets
 
-
-    private  String primeiroNome;
-    private  String sobreNome;
-    private  String cursoDesejado;
-    private  String telefoneContato;
+    private String primeiroNome;
+    private String sobreNome;
+    private String cursoDesejado;
+    private String telefoneContato;
 
     public String getPrimeiroNome() {
         return primeiroNome;
@@ -45,7 +44,6 @@ public class Pessoa {
     public void setTelefoneContato(String telefoneContato) {
         this.telefoneContato = telefoneContato;
     }
-
 
     @NonNull
     @Override

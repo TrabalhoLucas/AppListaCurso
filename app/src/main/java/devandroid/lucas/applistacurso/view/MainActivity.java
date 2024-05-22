@@ -1,5 +1,6 @@
 package devandroid.lucas.applistacurso.view;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.Button;
@@ -15,6 +16,8 @@ import devandroid.lucas.applistacurso.model.Pessoa;
 
 public class MainActivity extends AppCompatActivity {
 
+    SharedPreferences preferences;
+    public static final String NOME_PREFERENCES = "pref_listavip";
     PessoaController controller;
     Pessoa pessoa;
     Pessoa outraPessoa;
@@ -33,16 +36,16 @@ public class MainActivity extends AppCompatActivity {
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
 
+        preferences = getSharedPreferences(NOME_PREFERENCES,0);
+        SharedPreferences.Editor listaVip = preferences.edit();
+
         controller = new PessoaController();
         controller.toString();
 
-
         pessoa = new Pessoa();
 
-
-
         outraPessoa = new Pessoa();
-        outraPessoa.setPrimeiroNome("Gustavo s");
+        outraPessoa.setPrimeiroNome("Gustavo");
         outraPessoa.setSobreNome("Ferreira");
         outraPessoa.setCursoDesejado("Android1");
         outraPessoa.setTelefoneContato("11999998888");
@@ -69,7 +72,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
         btnFinalizar.setOnClickListener(v -> {
-            Toast.makeText(MainActivity.this, "Volte sempre!", Toast.LENGTH_LONG).show();
+            Toast.makeText(MainActivity.this,"Volte sempre!",Toast.LENGTH_LONG).show();
             finish();
         });
 
@@ -80,8 +83,13 @@ public class MainActivity extends AppCompatActivity {
             pessoa.setCursoDesejado(editNomeDoCurso.getText().toString());
             pessoa.setTelefoneContato(editTelefoneContato.getText().toString());
 
-
             Toast.makeText(MainActivity.this,"Salvo! "+pessoa.toString(),Toast.LENGTH_LONG).show();
+
+            listaVip.putString("primeiroNome",pessoa.getPrimeiroNome());
+            listaVip.putString("sobreNome",pessoa.getSobreNome());
+            listaVip.putString("nomeCurso",pessoa.getCursoDesejado());
+            listaVip.putString("telefoneContato",pessoa.getTelefoneContato());
+            listaVip.apply();
 
             controller.salvar(pessoa);
         });
@@ -89,13 +97,5 @@ public class MainActivity extends AppCompatActivity {
 
         Log.i("POOAndroid","Objeto pessoa: "+pessoa.toString());
         Log.i("POOAndroid","Objeto outraPessoa: "+outraPessoa.toString());
-
-            Toast.makeText(MainActivity.this, "Salvo! " + pessoa.toString(), Toast.LENGTH_LONG).show();
-
-        });
-
-        Log.i("POOAndroid", "Objeto pessoa: " + pessoa.toString());
-        Log.i("POOAndroid", "Objeto outraPessoa: " + outraPessoa.toString());
-
     }
 }

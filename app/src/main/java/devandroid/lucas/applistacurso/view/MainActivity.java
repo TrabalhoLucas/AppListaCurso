@@ -59,10 +59,10 @@ public class MainActivity extends AppCompatActivity {
         btnLimpar = findViewById(R.id.btnLimpar);
         btnFinalizar = findViewById(R.id.btnFinalizar);
 
-        editPrimeiroNome.setText(pessoa.getPrimeiroNome());
-        editSobreNomeAluno.setText(pessoa.getSobreNome());
-        editNomeDoCurso.setText(pessoa.getCursoDesejado());
-        editTelefoneContato.setText(pessoa.getTelefoneContato());
+        editPrimeiroNome.setText(outraPessoa.getPrimeiroNome());
+        editSobreNomeAluno.setText(outraPessoa.getSobreNome());
+        editNomeDoCurso.setText(outraPessoa.getCursoDesejado());
+        editTelefoneContato.setText(outraPessoa.getTelefoneContato());
 
         btnLimpar.setOnClickListener(v -> {
             editPrimeiroNome.setText("");

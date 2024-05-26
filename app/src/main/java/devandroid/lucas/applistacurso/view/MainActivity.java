@@ -11,13 +11,18 @@ import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 
 import devandroid.lucas.applistacurso.R;
+import devandroid.lucas.applistacurso.controller.CursoController;
 import devandroid.lucas.applistacurso.controller.PessoaController;
+import devandroid.lucas.applistacurso.model.Curso;
 import devandroid.lucas.applistacurso.model.Pessoa;
 
 public class MainActivity extends AppCompatActivity {
 
     PessoaController controller;
+    CursoController cursoController;
     Pessoa pessoa;
+
+    List<Curso> listaDeCursos;
     Pessoa outraPessoa;
     EditText editPrimeiroNome;
     EditText editSobreNomeAluno;
@@ -36,6 +41,9 @@ public class MainActivity extends AppCompatActivity {
 
         controller = new PessoaController(MainActivity.this);
         controller.toString();
+
+        cursoController = new CursoController();
+        cursoController.getListaDeCursos();
 
         pessoa = new Pessoa();
         controller.buscar(pessoa);

@@ -1,21 +1,22 @@
 package devandroid.lucas.applistacurso.view;
 
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import devandroid.lucas.applistacurso.R;
 import devandroid.lucas.applistacurso.controller.CursoController;
 import devandroid.lucas.applistacurso.controller.PessoaController;
-import devandroid.lucas.applistacurso.model.Curso;
 import devandroid.lucas.applistacurso.model.Pessoa;
 
 public class MainActivity extends AppCompatActivity {
@@ -23,9 +24,7 @@ public class MainActivity extends AppCompatActivity {
     PessoaController controller;
     CursoController cursoController;
     Pessoa pessoa;
-
-    List<Curso> listaDeCursos;
-    Pessoa outraPessoa;
+    List<String> nomesDosCursos;
     EditText editPrimeiroNome;
     EditText editSobreNomeAluno;
     EditText editNomeDoCurso;
@@ -35,6 +34,8 @@ public class MainActivity extends AppCompatActivity {
     Button btnLimpar;
     Button btnFinalizar;
 
+    Spinner spinner;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,9 +44,6 @@ public class MainActivity extends AppCompatActivity {
 
         controller = new PessoaController(MainActivity.this);
         controller.toString();
-
-        cursoController = new CursoController();
-        listaDeCursos = cursoController.getListaDeCursos();
 
         pessoa = new Pessoa();
         controller.buscar(pessoa);
@@ -63,6 +61,17 @@ public class MainActivity extends AppCompatActivity {
         btnSalvar = findViewById(R.id.btnSalvar);
         btnLimpar = findViewById(R.id.btnLimpar);
         btnFinalizar = findViewById(R.id.btnFinalizar);
+
+        cursoController = new CursoController();
+        nomesDosCursos = cursoController.dadosParaSpinner();
+        spinner = findViewById(R.id.spinner);
+
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1,
+                cursoController.dadosParaSpinner());
+
+        adapter.setDropDownViewResource(android.R.layout.simple_list_item_1);
+
+        spinner.setAdapter(adapter);
 
         btnLimpar.setOnClickListener(v -> {
             editPrimeiroNome.setText("");

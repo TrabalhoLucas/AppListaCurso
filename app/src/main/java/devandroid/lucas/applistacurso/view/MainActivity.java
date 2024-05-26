@@ -10,6 +10,8 @@ import android.widget.Toast;
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 
+import java.util.List;
+
 import devandroid.lucas.applistacurso.R;
 import devandroid.lucas.applistacurso.controller.CursoController;
 import devandroid.lucas.applistacurso.controller.PessoaController;
@@ -43,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
         controller.toString();
 
         cursoController = new CursoController();
-        cursoController.getListaDeCursos();
+        listaDeCursos = cursoController.getListaDeCursos();
 
         pessoa = new Pessoa();
         controller.buscar(pessoa);

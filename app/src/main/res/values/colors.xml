@@ -2,4 +2,6 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="corBotoes">#2196F3</color>
+    <color name="corSelecionar">#808080</color>
+
 </resources>
